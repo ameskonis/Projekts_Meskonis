@@ -57,4 +57,3 @@ Button(window, text="decrypt", command=decrypt1, bg="ghost white").place(x=215, 
 Button(window, text=" clear ", command=clear_text, bg="ghost white").place(x=300, y=42)
 Button(window, text=" clear ", command=clear_key, bg="ghost white").place(x=300, y=104)
 window.mainloop()
-#tests
