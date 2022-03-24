@@ -1,3 +1,3 @@
 # Projekts_Meskonis
-Projekts programmēšanā
+Projekts programmēšanā-
 Teksta šifrētājs un atšifrētājs
