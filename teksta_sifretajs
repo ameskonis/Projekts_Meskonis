@@ -37,7 +37,6 @@ def lv():
 
     def decrypt1():
         text1 = text.get()
-        text2 = base64.urlsafe_b64decode(text1).decode()
         key2 = key.get()
         key3 = key2.isdigit()
         result = ""
@@ -50,12 +49,18 @@ def lv():
             label4.place(x=35, y=170)
             label4.after(1000, label4.destroy)
         else:
-            for i in range(len(text2)):
-                char = text2[i]
-                result += chr(ord(char) - int(key2))
-            label4 = Label(window, text=result, font='arial', bg="ghost white", wraplength=340)
-            label4.place(x=35, y=170)
-            label4.after(10000, label4.destroy)
+            try:
+                text2 = base64.urlsafe_b64decode(text1).decode()
+                for i in range(len(text2)):
+                    char = text2[i]
+                    result += chr(ord(char) - int(key2))
+                label4 = Label(window, text=result, font='arial', bg="ghost white", wraplength=340)
+                label4.place(x=35, y=170)
+                label4.after(10000, label4.destroy)
+            except:
+                label4 = Label(window, text="nav pareizi ievadīts šifrētais teksts", font='arial', bg="ghost white", wraplength=340)
+                label4.place(x=35, y=170)
+                label4.after(1000, label4.destroy)
 
     window = Tk()
     window.geometry("420x300")
@@ -113,7 +118,6 @@ def eng():
 
     def decrypt1():
         text1 = text.get()
-        text2 = base64.urlsafe_b64decode(text1).decode()
         key2 = key.get()
         key3 = key2.isdigit()
         result = ""
@@ -126,12 +130,18 @@ def eng():
             label4.place(x=35, y=170)
             label4.after(1000, label4.destroy)
         else:
-            for i in range(len(text2)):
-                char = text2[i]
-                result += chr(ord(char) - int(key2))
-            label4 = Label(window, text=result, font='arial', bg="ghost white", wraplength=340)
-            label4.place(x=35, y=170)
-            label4.after(10000, label4.destroy)
+            try:
+                text2 = base64.urlsafe_b64decode(text1).decode()
+                for i in range(len(text2)):
+                    char = text2[i]
+                    result += chr(ord(char) - int(key2))
+                label4 = Label(window, text=result, font='arial', bg="ghost white", wraplength=340)
+                label4.place(x=35, y=170)
+                label4.after(10000, label4.destroy)
+            except:
+                label4 = Label(window, text="encrypted text is entered incorrectly", font='arial', bg="ghost white", wraplength=340)
+                label4.place(x=35, y=170)
+                label4.after(1000, label4.destroy)
 
     window = Tk()
     window.geometry("420x260")
@@ -156,6 +166,8 @@ def eng():
 
 language = Tk()
 language.geometry("230x150")
+language.title("text decrypter/encrypter")
+language.configure(bg="ghost white")
 Label(language, text="Choose language", font='arial 10 bold', bg="ghost white").pack()
 Label(language, text="Izvēlies valodu", font='arial 10 bold', bg="ghost white").pack()
 Button(language, text="Latviešu", command=lv, bg="ghost white").place(x=40, y=70)
